@@ -1,53 +1,78 @@
 package com.kahrbaa.educat
 
-import androidx.appcompat.app.AppCompatActivity
+import android.annotation.SuppressLint
 import android.os.Bundle
-import android.widget.LinearLayout
-import android.widget.SimpleAdapter
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.LinearSnapHelper
-import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.tabs.TabLayout.TabView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.viewpager.widget.ViewPager
 import com.kahrbaa.educat.databinding.ActivityMainBinding
+
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+    private lateinit var mPageViewAdapater: PageViewAdapater
 
+
+
+    @SuppressLint("ClickableViewAccessibility")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val courseData = ArrayList<Course>()
-        navDepartment()
-        in_progress(courseData)
+        mPageViewAdapater = PageViewAdapater(supportFragmentManager)
+        binding.mViewPager.adapter = mPageViewAdapater
+        binding.mViewPager.offscreenPageLimit = 5
 
+        binding.mViewPager.currentItem = 0
+        binding.mViewPager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
+            override fun onPageScrolled(
+                position: Int,
+                positionOffset: Float,
+                positionOffsetPixels: Int,
+            ) {}
 
+            override fun onPageSelected(position: Int) {
+                binding.bottomNavigation.selectedItemId = when (position) {
+                    0 -> R.id.home_page
+                    1 -> R.id.search_page
+                    2 -> R.id.activity
+                    3 -> R.id.classroom
+                    else -> throw IllegalStateException("position $position is invalid for this viewpager")
+                }
+            }
+
+            override fun onPageScrollStateChanged(state: Int) {
+            }
+
+        })
+
+        bottomnNav()
     }
 
-    private fun in_progress(arraydata: ArrayList<Course>) {
+    private fun bottomnNav() {
+        binding.bottomNavigation.setOnItemSelectedListener { item ->
+            when(item.itemId) {
+                R.id.home_page -> {
+                    binding.mViewPager.currentItem = 0
+                }
+                R.id.search_page -> {
+                    binding.mViewPager.currentItem = 1
 
-        arraydata.add(
-            Course(
-                "The Complete Dart Learning Guide [2022 Edition]",
-                "A Complete Guide to the Dart Programming Language",
-                40,
-                WhoCreated("Hassan Fulaih", R.drawable.profileimg)
-            )
-        )
+                }
+                R.id.activity -> {
+                    binding.mViewPager.currentItem = 2
 
-        var snapHelper = LinearSnapHelper()
-        snapHelper.attachToRecyclerView(binding.inProgress)
+                }
+                R.id.classroom -> {
+                    binding.mViewPager.currentItem = 3
 
-        binding.inProgress.layoutManager = LinearLayoutManager(this, RecyclerView.HORIZONTAL, false)
-        binding.inProgress.adapter = InProgressAdapter(this, arraydata)
-        binding.inProgress.isNestedScrollingEnabled = false
-
-    }
-
-    private fun navDepartment() {
-
+                }
+                else -> return@setOnItemSelectedListener false
+            }
+//            Toast.makeText(this@MainActivity, "item : $item", Toast.LENGTH_SHORT).show()
+            true
+        }
     }
 
 
