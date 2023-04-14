@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primaryColor">#EAE9E5</color>
+    <color name="primarySColor">#B9B5A8</color>
+    <color name="online">#FE5A5E</color>
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="gold">#C1AA6A</color>
+    <color name="back_coah">#087E8B</color>
+    <color name="progressBar">#E6D8BD</color>
+    <color name="progressBar_c">#2EAFBE</color>
+    <color name="effect_thumbnill">#701D1D1B</color>
+</resources>

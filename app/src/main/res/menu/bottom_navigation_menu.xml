@@ -1,0 +1,20 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/home_page"
+        android:enabled="true"
+        android:icon="@drawable/home_icon"
+        android:title="Home" />
+    <item
+        android:id="@+id/search_page"
+        android:icon="@drawable/search_icon"
+        android:title="Search" />
+    <item
+        android:id="@+id/activity"
+        android:icon="@drawable/activity"
+        android:title="Activity" />
+    <item
+        android:id="@+id/classroom"
+        android:icon="@drawable/classroom"
+        android:title="Classroom" />
+
+</menu>
