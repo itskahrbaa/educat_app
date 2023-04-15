@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -7,322 +9,292 @@
     android:scrollbars="none"
     tools:context=".fragments.Home">
 
-        <LinearLayout
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layoutDirection="ltr"
+        android:orientation="vertical">
+
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layoutDirection="ltr"
-            android:orientation="vertical">
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingStart="11dp"
-                android:paddingTop="30dp"
-                android:paddingEnd="12dp">
-
-                <FrameLayout
-                    android:id="@+id/logo"
-                    android:layout_width="74.67dp"
-                    android:layout_height="52dp"
-                    android:layout_alignParentLeft="true"
-                    android:layout_margin="5dp">
-
-                    <ImageView
-                        android:layout_width="52dp"
-                        android:layout_height="52dp"
-                        android:layout_gravity="center"
-                        android:src="@drawable/circle" />
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginBottom="9dp"
-                        android:src="@drawable/handpen" />
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:src="@drawable/handlogo" />
-
-                </FrameLayout>
-
-                <TextView
-                    android:layout_width="96.62dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:layout_toEndOf="@+id/logo"
-                    android:fontFamily="@font/jost_bold"
-                    android:text="EDUCAT"
-                    android:textAlignment="center"
-                    android:textColor="@color/black"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
-
-                <FrameLayout
-                    android:id="@+id/profile"
-                    android:layout_width="57dp"
-                    android:layout_height="50dp"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginEnd="5dp"
-                    android:layout_marginBottom="5dp">
-
-                    <de.hdodenhof.circleimageview.CircleImageView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:layout_gravity="center"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/profileimg" />
-
-                    <ImageView
-                        android:layout_width="19dp"
-                        android:layout_height="19dp"
-                        android:layout_gravity="right"
-                        android:background="@drawable/online_back"
-                        android:backgroundTint="@color/primaryColor" />
-
-                    <ImageView
-                        android:layout_width="7dp"
-                        android:layout_height="7dp"
-                        android:layout_gravity="right"
-                        android:layout_marginTop="6dp"
-                        android:layout_marginRight="7dp"
-                        android:src="@drawable/online_shape" />
-
-                </FrameLayout>
-
-            </RelativeLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="11dp"
-                android:layout_marginEnd="10dp"
-                android:gravity="center"
-                android:orientation="horizontal"
-                android:weightSum="4">
-
-                <TextView
-                    android:id="@+id/tab1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/jost_medium"
-                    android:gravity="center"
-                    android:text="In Progress"
-                    android:textColor="@color/black"
-                    android:textSize="15sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/tab2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/jost_medium"
-                    android:gravity="center"
-                    android:text="Saved"
-                    android:textColor="@color/primarySColor"
-                    android:textSize="15sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/tab3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/jost_medium"
-                    android:gravity="center"
-                    android:text="Coaching"
-                    android:textColor="@color/primarySColor"
-                    android:textSize="15sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/tab4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/jost_medium"
-                    android:gravity="center"
-                    android:text="Homework"
-                    android:textColor="@color/primarySColor"
-                    android:textSize="15sp"
-                    android:textStyle="bold" />
-
-            </LinearLayout>
-
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/in_progress"
-                android:layout_width="match_parent"
-                android:layout_height="291dp"
-                android:layout_margin="12dp"
-                tools:listitem="@layout/inprogress_coures"/>
-
-            <!--    div watch history        -->
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="206dp"
-                android:paddingStart="12dp"
-                android:paddingEnd="12dp">
-
-                <TextView
-                    android:id="@+id/history_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:fontFamily="@font/el_messiri_medium"
-                    android:text="Watch history"
-                    android:textAllCaps="true"
-                    android:textSize="16sp" />
-
-                <ImageButton
-                    android:id="@+id/history_btn"
-                    style="@style/Widget.MaterialComponents.Button.TextButton"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="5dp"
-                    android:layout_marginBottom="10dp"
-                    android:src="@drawable/next_btn" />
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recycler_history"
-                    android:layout_width="match_parent"
-                    android:layout_height="168dp"
-                    android:layout_below="@+id/history_title" />
-
-            </RelativeLayout>
+            android:paddingStart="11dp"
+            android:paddingTop="30dp"
+            android:paddingEnd="12dp">
 
             <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="399.94dp">
-
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="200dp"
-                    android:layout_gravity="bottom"
-                    android:src="@drawable/background_coah" />
+                android:id="@+id/logo"
+                android:layout_width="74.67dp"
+                android:layout_height="52dp"
+                android:layout_alignParentLeft="true"
+                android:layout_margin="5dp">
 
                 <ImageView
-                    android:layout_width="181.62dp"
-                    android:layout_height="199.89dp"
-                    android:layout_gravity="end"
-                    android:src="@drawable/chart" />
+                    android:layout_width="52dp"
+                    android:layout_height="52dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/circle" />
 
-                <TextView
-                    android:layout_width="133dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginEnd="90dp"
-                    android:fontFamily="@font/montserrat_medium"
-                    android:text="Educat\ncoaching"
-                    android:textColor="@color/black"
-                    android:textSize="25sp" />
-
-                <TextView
-                    android:layout_width="56dp"
-                    android:layout_height="20dp"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="70dp"
-                    android:layout_marginRight="129dp"
-                    android:background="@drawable/btn_gold"
-                    android:fontFamily="@font/jost_medium"
-                    android:gravity="center"
-                    android:text="GOLD"
-                    android:textColor="@color/black"
-                    android:textSize="9sp" />
-
-                <TextView
+                <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="70dp"
-                    android:layout_marginRight="45dp"
-                    android:gravity="center"
-                    android:text="MASTERCLASS"
-                    android:textColor="@color/black" />
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="9dp"
+                    android:src="@drawable/handpen" />
 
                 <ImageView
-                    android:layout_width="327dp"
-                    android:layout_height="213dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginTop="18dp"
-                    android:background="@drawable/radius"
-                    android:src="@drawable/img_coah" />
+                    android:src="@drawable/handlogo" />
 
-                <ImageView
-                    android:layout_width="327dp"
-                    android:layout_height="213dp"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="18dp"
+            </FrameLayout>
 
-                    android:background="@drawable/radius"
-                    android:src="@drawable/effect_img_coah" />
+            <TextView
+                android:layout_width="96.62dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_toEndOf="@+id/logo"
+                android:fontFamily="@font/jost_bold"
+                android:text="EDUCAT"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:layout_width="59dp"
-                    android:layout_height="59dp"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="@dimen/profile_coah"
-                    android:layout_marginRight="@dimen/profile_coah2"
-                    android:background="@drawable/strok" />
+            <FrameLayout
+                android:id="@+id/profile"
+                android:layout_width="57dp"
+                android:layout_height="50dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp">
 
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_gravity="center"
-                    android:layout_marginTop="@dimen/profile_coah"
-                    android:layout_marginRight="@dimen/profile_coah2"
-                    android:background="@drawable/strok"
+                    android:scaleType="centerCrop"
                     android:src="@drawable/profileimg" />
 
-                <TextView
-                    android:layout_width="218dp"
-                    android:layout_height="64dp"
-                    android:layout_gravity="bottom"
-                    android:layout_marginStart="152dp"
-                    android:layout_marginBottom="5dp"
-                    android:fontFamily="@font/jost_medium"
-                    android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eros enim, dictum vitae quam nec, congue feugiat neque. Vivamus ut luctus enim. "
-                    android:textColor="@color/white"
-                    android:textSize="10sp" />
+                <ImageView
+                    android:layout_width="19dp"
+                    android:layout_height="19dp"
+                    android:layout_gravity="right"
+                    android:background="@drawable/online_back"
+                    android:backgroundTint="@color/primaryColor" />
 
-
-                <TextView
-                    android:layout_width="154dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="24dp"
-                    android:layout_marginTop="34dp"
-                    android:fontFamily="@font/jost_medium"
-                    android:text="by Hassan Yasser"
-                    android:textColor="@color/white"
-                    android:textSize="10sp" />
-
-                <TextView
-                    android:layout_width="186dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="40dp"
-                    android:layout_marginTop="75dp"
-                    android:fontFamily="@font/jost_medium"
-                    android:text="How to travel and get paid in 2021 during Covid season"
-                    android:textColor="@color/white"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
+                <ImageView
+                    android:layout_width="7dp"
+                    android:layout_height="7dp"
+                    android:layout_gravity="right"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginRight="7dp"
+                    android:src="@drawable/online_shape" />
 
             </FrameLayout>
-        </LinearLayout>
+
+        </RelativeLayout>
+
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tab_home"
+            android:layout_width="match_parent"
+            style="@style/Theme.tabs"
+            android:layout_height="30dp">
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/tab1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="In Progress"/>
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Saved"/>
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Coaching"/>
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Homework"/>
+
+
+        </com.google.android.material.tabs.TabLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/in_progress"
+            android:layout_width="match_parent"
+            android:layout_height="291dp"
+            android:layout_margin="12dp"
+            tools:listitem="@layout/inprogress_coures" />
+
+        <!--    div watch history        -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="206dp"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp">
+
+            <TextView
+                android:id="@+id/history_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/el_messiri_medium"
+                android:text="Watch history"
+                android:textAllCaps="true"
+                android:textSize="16sp" />
+
+            <ImageButton
+                android:id="@+id/history_btn"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="10dp"
+                android:src="@drawable/next_btn" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_history"
+                android:layout_width="match_parent"
+                android:layout_height="168dp"
+                android:layout_below="@+id/history_title" />
+
+        </RelativeLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="399.94dp">
+
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_gravity="bottom"
+                android:src="@drawable/background_coah" />
+
+            <ImageView
+                android:layout_width="181.62dp"
+                android:layout_height="199.89dp"
+                android:layout_gravity="end"
+                android:src="@drawable/chart" />
+
+            <TextView
+                android:layout_width="133dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginEnd="90dp"
+                android:fontFamily="@font/montserrat_medium"
+                android:text="Educat\ncoaching"
+                android:textColor="@color/black"
+                android:textSize="25sp" />
+
+            <TextView
+                android:layout_width="56dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="70dp"
+                android:layout_marginRight="129dp"
+                android:background="@drawable/btn_gold"
+                android:fontFamily="@font/jost_medium"
+                android:gravity="center"
+                android:text="GOLD"
+                android:textColor="@color/black"
+                android:textSize="9sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="70dp"
+                android:layout_marginRight="45dp"
+                android:gravity="center"
+                android:text="MASTERCLASS"
+                android:textColor="@color/black" />
+
+            <ImageView
+                android:layout_width="327dp"
+                android:layout_height="213dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="18dp"
+                android:background="@drawable/radius"
+                android:src="@drawable/img_coah" />
+
+            <ImageView
+                android:layout_width="327dp"
+                android:layout_height="213dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="18dp"
+
+                android:background="@drawable/radius"
+                android:src="@drawable/effect_img_coah" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="59dp"
+                android:layout_height="59dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/profile_coah"
+                android:layout_marginRight="@dimen/profile_coah2"
+                android:background="@drawable/strok" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/profile_coah"
+                android:layout_marginRight="@dimen/profile_coah2"
+                android:background="@drawable/strok"
+                android:src="@drawable/profileimg" />
+
+            <TextView
+                android:layout_width="218dp"
+                android:layout_height="64dp"
+                android:layout_gravity="bottom"
+                android:layout_marginStart="152dp"
+                android:layout_marginBottom="5dp"
+                android:fontFamily="@font/jost_medium"
+                android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eros enim, dictum vitae quam nec, congue feugiat neque. Vivamus ut luctus enim. "
+                android:textColor="@color/white"
+                android:textSize="10sp" />
+
+
+            <TextView
+                android:layout_width="154dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="24dp"
+                android:layout_marginTop="34dp"
+                android:fontFamily="@font/jost_medium"
+                android:text="by Hassan Yasser"
+                android:textColor="@color/white"
+                android:textSize="10sp" />
+
+            <TextView
+                android:layout_width="186dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="75dp"
+                android:fontFamily="@font/jost_medium"
+                android:text="How to travel and get paid in 2021 during Covid season"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+
+        </FrameLayout>
+    </LinearLayout>
 
 </ScrollView>
