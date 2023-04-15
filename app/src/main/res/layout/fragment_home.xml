@@ -156,14 +156,13 @@
 
             </LinearLayout>
 
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/in_progress"
                 android:layout_width="match_parent"
                 android:layout_height="291dp"
                 android:layout_margin="12dp"
-                android:layout_marginTop="32dp"
-                tools:itemCount="2"
-                tools:listitem="@layout/inprogress_coures" />
+                tools:listitem="@layout/inprogress_coures"/>
 
             <!--    div watch history        -->
             <RelativeLayout
